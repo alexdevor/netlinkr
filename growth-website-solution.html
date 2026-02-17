@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Netlinkr</title>
+    <link rel="icon" href="images/logo.png" type="image/png">
+    
+    <!-- CSS Libraries -->
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.min.css" rel="stylesheet">
+    
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script 
+  src="https://www.paypal.com/sdk/js?client-id=BAAVqNkQPyS109V3BAVrv1Dva5hu3B4La1Tmt6L3isWeNI0ntoxdUwehTQzmDzTDHFDsjL-URXXAVNf1RI&components=hosted-buttons&disable-funding=venmo&currency=EUR">
+</script>
+
+    <style>
+        /* Checkout Specific Styles */
+        body {
+            background-color: #000;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .checkout-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            width: 100%;
+            flex: 1;
+        }
+
+        .logo-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .logo-section img {
+            max-width: 180px;
+            height: auto;
+        }
+
+        .checkout-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 40px;
+        }
+
+        /* Card Style matching existing design */
+        .checkout-card {
+            background-color: #27272a;
+            border-radius: 15px;
+            padding: 30px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .checkout-card:hover {
+            border-color: #333;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #444;
+            color: #fff;
+        }
+
+        /* Form Styles from contact.html */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #444;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+            font-size: 16px;
+            font-family: 'Poppins', sans-serif;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: #38b6ff;
+            outline: none;
+        }
+
+        /* Order Summary Styles */
+        .package-header {
+            margin-bottom: 20px;
+        }
+
+        .package-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .package-badge {
+            display: inline-block;
+            background-color: #38b6ff;
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .package-description {
+            color: #ccc;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .delivery-box {
+            background-color: rgba(56, 182, 255, 0.1);
+            border: 1px solid rgba(56, 182, 255, 0.3);
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .delivery-icon {
+            font-size: 1.5rem;
+            color: #38b6ff;
+            flex-shrink: 0; /* Prevents icon from squashing on small screens */
+        }
+
+        .delivery-text {
+            font-size: 0.9rem;
+            color: #fff;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            color: #ccc;
+            font-size: 0.95rem;
+        }
+
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px dashed #555;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .highlight-text {
+            color: #38b6ff;
+        }
+
+        .paypal-container {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            color: #ccc;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .back-btn:hover {
+            color: #38b6ff;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .checkout-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .checkout-card {
+                padding: 20px;
+            }
+            
+            .checkout-wrapper {
+                padding: 20px 15px; /* Tighter padding for mobile screens */
+            }
+
+            /* Align icons to top if text wraps on narrow screens */
+            .notice-box, .delivery-box {
+                align-items: flex-start;
+            }
+        }
+
+        .success-msg {
+            display: none;
+            margin-bottom: 20px;
+            padding: 12px;
+            background-color: #38b6ff;
+            color: #000;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        .notice-box {
+            background-color: rgba(56, 182, 255, 0.1);
+            border: 1px solid #38b6ff;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* Prevents the info icon from shrinking */
+        .notice-box i {
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="background"></div>
+
+    <div class="checkout-wrapper">
+        <div class="logo-section">
+            <a href="index.html">
+                <img src="images/logo.png" alt="Netlinkr Logo">
+            </a>
+        </div>
+
+        <a href="index.html" class="back-btn">
+            <i class="ri-arrow-left-line"></i> Back to Home
+        </a>
+
+        <div class="checkout-grid">
+            <!-- Left Column: Billing Details -->
+            <div class="checkout-card">
+                <h2 class="section-title">Project Brief & Details</h2>
+                
+                <div class="notice-box">
+                    <i class="ri-information-line" style="font-size: 1.5rem; color: #38b6ff;"></i>
+                    <div style="font-size: 0.95rem; line-height: 1.4;">
+                        <strong style="color: #38b6ff;">Recommendation:</strong> It is highly recommended to fill out this project brief <strong>before</strong> proceeding to payment.
+                    </div>
+                </div>
+                
+                <div class="project-brief-description" style="margin-bottom: 25px; color: #ccc; font-size: 0.9rem; line-height: 1.6;">
+                    <h3 style="color: #fff; margin-bottom: 10px; font-size: 1.1rem;">Project Brief Instructions</h3>
+                    <p style="margin-bottom: 10px;">To help us build your website exactly how you envision it, please provide as much detail as possible in your brief. Include the following:</p>
+                    <ol style="padding-left: 20px; margin-bottom: 15px;">
+                        <li><strong>Business/Project Name & Description</strong> – What is your business or project about?</li>
+                        <li><strong>Website Goals</strong> – What do you want your website to achieve?</li>
+                        <li><strong>Design Preferences</strong> – Any specific styles, colors, fonts, or layouts?</li>
+                        <li><strong>Content & Media</strong> – Text, images, videos, or logos you want included.</li>
+                        <li><strong>Functional Requirements</strong> – Special features (e.g., contact form, AI chat)?</li>
+                        <li><strong>Target Audience</strong> – Who are your visitors or customers?</li>
+                        <li><strong>Additional Notes</strong> – Anything else to help us create your ideal website.</li>
+                    </ol>
+                    <p>The more detail you provide, the faster and more accurate we can deliver your perfect site!</p>
+                </div>
+
+                <div class="success-msg" id="successMsg">
+                    Thank you! Your brief has been sent.
+                </div>
+
+                <form id="contactForm" action="https://formspree.io/f/mkovbope" method="POST">
+                    <div class="form-group">
+                        <label for="name">Your Full Name Or Company</label>
+                        <input type="text" id="name" name="name" class="form-control" placeholder="Enter your full name or your company" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="_replyto" class="form-control" placeholder="Enter your email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Your Project Brief</label>
+                        <textarea id="message" name="message" class="form-control" rows="6" placeholder="Include your company name and line of business..." required></textarea>
+                    </div>
+
+                    <button type="submit" style="width: 100%; padding: 12px; background-color: #fff; color: #000; border: none; border-radius: 5px; font-weight: 600; cursor: pointer; transition: background-color 0.3s;">Send & Continue To Payment</button>
+                </form>
+            </div>
+
+            <!-- Right Column: Order Summary -->
+            <div class="checkout-card">
+                <h2 class="section-title">Order Summary</h2>
+                
+                <div class="package-header">
+                    <div class="package-name">Growth Website Solution</div>
+                    <span class="package-badge">Growth Plan</span>
+                </div>
+
+                <p class="package-description">
+                    A comprehensive 5–10 page website for growing businesses. Includes optional AI chat agent, advanced analytics dashboard, SEO + speed optimization, and domain setup.
+                </p>
+
+                <div class="delivery-box">
+                    <i class="ri-time-line delivery-icon"></i>
+                    <div class="delivery-text">
+                        <strong>Estimated Delivery</strong><br>
+                        10–14 Business Days
+                    </div>
+                </div>
+
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span>€1000.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Setup & Domain</span>
+                    <span>Included</span>
+                </div>
+                <div class="summary-row">
+                    <span>VAT</span>
+                    <span>€0.00</span>
+                </div>
+
+                <div class="total-row">
+                    <span>Total</span>
+                    <span class="highlight-text">€1000.00</span>
+                </div>
+
+                <!-- PayPal Section -->
+                <div class="paypal-container">
+                    <p style="margin-bottom: 15px; font-size: 0.9rem; color: #ccc;">Pay securely with PayPal:</p>
+                    
+<div id="paypal-container-F7RPRLRRW8AKU"></div>
+<script>
+  paypal.HostedButtons({
+    hostedButtonId: "F7RPRLRRW8AKU",
+  }).render("#paypal-container-F7RPRLRRW8AKU")
+</script>
+                    
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="copyright" style="text-align: center; padding: 20px; color: #888; font-size: 0.8rem;">
+        Copyright © 2026 Netlinkr. All Rights Reserved.
+    </div>
+
+    <script>
+        // Particles JS Configuration
+        particlesJS("background", {
+            particles: {
+                number: { value: 20, density: { enable: true, value_area: 400 } },
+                color: { value: "#ffffff" },
+                shape: { type: "triangle" },
+                opacity: { value: 0.8, random: true, anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false } },
+                size: { value: 5, random: true, anim: { enable: true, speed: 4, size_min: 0.3, sync: false } },
+                line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.3, width: 1 },
+                move: { enable: true, speed: 2, direction: "none", random: false, straight: false, out_mode: "bounce", bounce: false }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" }, resize: true },
+                modes: { repulse: { distance: 100, duration: 0.4 }, push: { particles_nb: 4 } }
+            },
+            retina_detect: true
+        });
+
+        // Contact form submission handler
+        const form = document.getElementById("contactForm");
+        if(form) {
+            form.addEventListener("submit", function(event){
+                event.preventDefault(); // prevent default submission
+                const btn = form.querySelector('button[type="submit"]');
+                const originalText = btn.innerText;
+                btn.innerText = "Sending...";
+                btn.disabled = true;
+
+                const data = new FormData(form);
+
+                fetch(form.action, {
+                    method: form.method,
+                    body: data,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        document.getElementById('successMsg').style.display = 'block';
+                        form.reset();
+                        btn.innerText = "Sent!";
+                    } else {
+                        alert("Oops! There was a problem submitting your form.");
+                        btn.innerText = originalText;
+                        btn.disabled = false;
+                    }
+                })
+                .catch(error => {
+                    alert("Oops! There was a problem submitting your form.");
+                    btn.innerText = originalText;
+                    btn.disabled = false;
+                });
+            });
+        }
+    </script>
+</body>
+</html>

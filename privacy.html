@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy - Netlinkr</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/logo.png" type="image/png">
+    <!-- Include particles.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            min-height: 100vh;
+            background-color: #000;
+            color: #fff;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow-x: hidden;
+        }
+
+        /* Background Container */
+        #background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: -1;
+        }
+
+        /* Main Container */
+        .main {
+            flex-grow: 1;
+            padding: 40px;
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0, 0.8);
+            width: 100%;
+            max-width: 1200px;
+            margin: 40px auto;
+        }
+
+        /* Heading Styling */
+        h1 {
+            font-family: 'Helvetica Neue', sans-serif;
+            margin-bottom: 20px;
+            font-size: 24px;
+            text-align: center;
+        }
+
+        /* Paragraph Styling */
+        p {
+            margin-bottom: 20px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* Section Heading Styling */
+        h2 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            margin-top: 25px;
+        }
+
+        /* Footer Styling */
+        footer.container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.9);
+            color: grey;
+            border-top: 1px solid #444;
+        }
+
+        footer.container .column {
+            flex: 1;
+            min-width: 200px;
+            margin: 10px;
+        }
+
+        footer.container .column h4 {
+            margin-bottom: 10px;
+            font-size: 18px;
+            color: #fff;
+        }
+
+        footer.container .column a {
+            display: block;
+            margin-bottom: 10px;
+            color: grey;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        footer.container .column a:hover {
+            color: #fff;
+        }
+
+        footer.container .logo img {
+            max-width: 150px;
+        }
+
+        footer.container .socials a {
+            margin-right: 10px;
+            font-size: 20px;
+            color: grey;
+            text-decoration: none;
+        }
+
+        footer.container .socials a:hover {
+            color: #fff;
+        }
+
+        .copyright {
+            text-align: center;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.9);
+            color: grey;
+        }
+        .logo-container {
+    text-align: center; /* Center the image horizontally */
+    margin: 20px 0; /* Add some margin for spacing */
+}
+
+.logo-container img {
+    max-width: 270px; /* Adjust the size of the logo */
+    width: 100%; /* Ensure it scales proportionally */
+    height: auto; /* Maintain the aspect ratio */
+}
+
+        
+    </style>
+</head>
+<body>
+    <!-- Background Container -->
+    <div id="background"></div>
+
+    <!-- Main Content -->
+    <div class="main">
+        <div class="logo-container">
+            <img src="images/logo.png" alt="netlinkr logo">
+        </div>
+        <h1>Privacy Policy</h1>
+        <h1 style="font-size: small;">Last updated: 19 January 2026</h1>
+
+        <p>At Netlinkr, we value your privacy and are committed to protecting your personal information. This Privacy Policy outlines how we collect, use, and safeguard your data.</p>
+
+        <h2>Information We Collect</h2>
+        <p>We may collect personal information that you voluntarily provide to us, such as your name, email address, and any other details you provide when contacting us or using our services.</p>
+
+        <h2>How We Use Your Information</h2>
+        <p>Your information is used to provide and improve our services, communicate with you, and ensure the security of our platform. We do not share your personal information with third parties except as required by law.</p>
+
+        <h2>Data Security</h2>
+        <p>We implement a variety of security measures to maintain the safety of your personal information. However, no method of transmission over the Internet is completely secure, and we cannot guarantee its absolute security.</p>
+
+        <h2>Cookies</h2>
+        <p>Our website may use cookies to enhance your experience. You can choose to disable cookies through your browser settings, but this may affect the functionality of our site.</p>
+
+        <h2>Changes to This Policy</h2>
+        <p>We may update this Privacy Policy from time to time. We encourage you to review this page periodically to stay informed about how we are protecting your information.</p>
+
+        <h2>Contact Us</h2>
+        <p>If you have any questions about this Privacy Policy, please contact us at <a href="mailto:netlinkrdev@gmail.com" style="color:#fff; text-decoration: underline;">netlinkrdev@gmail.com</a>.</p>
+        <button id="goBackButton" type="submit">I Agree</button>
+    </div>
+    <style>
+        /* Button Styling */
+    button[type="submit"] {
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #fff;
+        color: #000;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    
+    button[type="submit"]:hover {
+        background-color: #ddd;
+    }
+     </style>
+
+     <footer class="container">
+      <span class="blur"></span>
+      <span class="blur"></span>
+      <div class="column">
+        <div class="logo">
+          <img src="images/logo.png" />
+        </div>
+        <p>
+          Email us at 
+          <a style="color: grey;" href="mailto:netlinkrdev@gmail.com">netlinkrdev@gmail.com</a>
+          to get started
+        </p>
+        <div class="socials">
+          <a href="https://www.instagram.com/net.linkr/"><i class="ri-instagram-line"></i></a>
+        </div>
+      </div>
+
+      <div class="column">
+        <h4>Contact</h4>
+        <a href="contact.html">Contact Us</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="tos.html">Terms & Conditions</a>
+      </div>
+    </footer>
+
+    <div class="copyright">
+      Copyright © 2026 Netlinkr. All Rights Reserved.
+    </div>
+    <script src="script.js"></script>
+  </section>
+
+
+    <!-- JavaScript for Background Animation -->
+    <script>
+                 // Add event listener to the Go Back button
+                 document.getElementById('goBackButton').addEventListener('click', function() {
+            window.history.back();
+        });
+        // Initialize particles.js
+        particlesJS("background", {
+            particles: {
+                number: {
+                    value: 15,
+                    density: {
+                        enable: true,
+                        value_area: 300,
+                    },
+                },
+                color: {
+                    value: "#ffffff",
+                },
+                shape: {
+                    type: "triangle",
+                },
+                opacity: {
+                    value: 0.8,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 1,
+                        opacity_min: 0.1,
+                        sync: false,
+                    },
+                },
+                size: {
+                    value: 5,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 4,
+                        size_min: 0.3,
+                        sync: false,
+                    },
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#ffffff",
+                    opacity: 0.4,
+                    width: 1,
+                },
+                move: {
+                    enable: true,
+                    speed: 2.5,
+                    direction: "none",
+                    random: false,
+                    straight: false,
+                    out_mode: "bounce",
+                    bounce: false,
+                },
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: "repulse",
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: "push",
+                    },
+                    resize: true,
+                },
+            },
+            retina_detect: true,
+        });
+    </script>
+</body>
+</html>
