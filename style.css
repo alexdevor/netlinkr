@@ -6,10 +6,8 @@
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
-    /* Ensures the background stays behind other content */
-    background-color: #000000;
-    /* Optional: fallback color if particles don't load */
+    z-index: -1; 
+    background-color: #000000; 
 }
 
 
@@ -22,7 +20,7 @@
 }
 
 img {
-    width: 170%;
+    width: 100%;
     display: flex;
 }
 
@@ -36,9 +34,19 @@ body {
 }
 
 nav {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem 1rem;
+    background-color: #000;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.nav-content {
     max-width: 1200px;
     margin: auto;
-    padding: 2rem 1rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -156,7 +164,7 @@ header .image::before {
 }
 
 header .image img {
-    max-width: 450px;
+    max-width: 400px;
     margin: auto;
 }
 
@@ -294,7 +302,7 @@ section .header {
 footer {
     position: relative;
     display: grid;
-    grid-template-columns: 400px repeat(3, 1fr);
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
     gap: 2rem;
 }
 
@@ -303,9 +311,14 @@ footer .column .logo {
     margin-bottom: 2rem;
 }
 
+footer .column .logo img {
+    width: 100%;
+    display: block;
+}
+
 footer .column p {
     color: #ccc;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 footer .column .socials {
@@ -354,11 +367,17 @@ footer .column>a:hover {
     color: #fff;
     font-size: 0.8rem;
     text-align: center;
+    margin-top: 2rem;
+    border-top: 1px solid #3f3f46;
 }
 
 @media (width < 900px) {
     .nav-links {
         display: none;
+    }
+
+    .nav-toggle {
+        display: block;
     }
 
     header {
@@ -378,11 +397,16 @@ footer .column>a:hover {
     }
 
     footer {
-        grid-template-columns: 1fr 200px;
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (width < 600px) {
+    header .content h1 {
+        font-size: 2.5rem;
+        line-height: 3rem;
+    }
+
     header .image::before {
         display: none;
     }
@@ -396,8 +420,89 @@ footer .column>a:hover {
     }
 
     footer {
-        grid-template-columns: 1fr 150px;
+        grid-template-columns: 1fr;
     }
+
+    .page-container {
+        padding: 20px;
+        margin: 1rem auto;
+    }
+
+    .page-container h1 {
+        font-size: 1.8rem;
+    }
+
+    .page-container h2 {
+        font-size: 1.3rem;
+    }
+}
+
+.page-container {
+    flex-grow: 1;
+    padding: 40px;
+    border-radius: 15px;
+    background-color: #27272a;
+    width: 100%;
+    max-width: 900px;
+    margin: 2rem auto;
+}
+
+.page-container .logo-container {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.page-container .logo-container img {
+    max-width: 200px;
+    width: 100%;
+    height: auto;
+}
+
+.page-container h1 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    color: #fff;
+}
+
+.page-container h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+    color: #fff;
+    font-weight: 500;
+}
+
+.page-container p,
+.page-container li {
+    color: #ccc;
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.page-container ol {
+    padding-left: 20px;
+    margin-bottom: 1.5rem;
+}
+
+.page-container .project-brief-description ol {
+    list-style-position: inside;
+}
+
+.page-container .project-brief-description li {
+    margin-bottom: 0.5rem;
+}
+
+.page-container a {
+    color: #38b6ff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.page-container a:hover {
+    color: #fff;
 }
 
 .back-to-top {
@@ -438,7 +543,7 @@ html {
     cursor: pointer;
 }
 
-.nav-toggle.active+.nav-links {
+.nav-toggle.active ~ .nav-links {
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -466,8 +571,7 @@ html {
 }
 
 .animated-btn {
-    background-color: #38b6ff;
-    /* Your theme color */
+    background-color: #38b6ff; 
     color: white;
     border: none;
     border-radius: 5px;
@@ -478,8 +582,7 @@ html {
 }
 
 .animated-btn:hover {
-    background-color: #1e40af;
-    /* Slightly darker shade for hover effect */
+    background-color: #1e40af; 
     transform: scale(1.05);
 }
 
@@ -494,7 +597,57 @@ html {
     transform: translateY(0);
 }
 
-/* Hide header image on screens smaller than 768px */
+.page-container form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+}
+
+.page-container form label {
+    font-size: 1rem;
+    margin-bottom: 8px;
+    color: #ccc;
+}
+
+.page-container form input[type="text"],
+.page-container form input[type="email"],
+.page-container form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.page-container form textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.page-container form button[type="submit"] {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #000;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: auto;
+    max-width: 300px;
+    align-self: center;
+}
+
+.page-container form button[type="submit"]:hover {
+    background-color: #ddd;
+}
+
+
 @media (max-width: 700px) {
     .image {
         display: none;
@@ -582,7 +735,6 @@ html {
     font-size: 12px;
 }
 
-/* Media Query for Mobile Devices */
 @media (max-width: 768px) {
     .feedback {
         padding: 40px 15px;
@@ -619,6 +771,23 @@ html {
     .feedback .customers .item .user p {
         font-size: 11px;
     }
+
+    .checkout-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .checkout-card {
+        padding: 20px;
+    }
+
+    .checkout-wrapper {
+        padding: 20px 15px;
+    }
+
+    .notice-box,
+    .delivery-box {
+        align-items: flex-start;
+    }
 }
 
 .fade-in-content {
@@ -632,33 +801,23 @@ html {
     transform: translateY(0);
 }
 
-/* Popup Overlay Styling */
 .popup-overlay {
-    position: fixed;
-    /* Fixed to the viewport */
+    position: fixed; 
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    /* Semi-transparent background */
+    background-color: rgba(0, 0, 0, 0.7); 
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    /* Align items to the top */
-    z-index: 9999;
-    /* Ensure it’s above other content */
-    backdrop-filter: blur(5px);
-    /* Blurs the background */
-    visibility: visible;
-    /* Ensure visibility */
-    opacity: 1;
-    /* Ensure opacity */
-    transition: opacity 0.3s ease;
-    /* Smooth transition for appearance */
+    align-items: flex-start; 
+    z-index: 9999; 
+    backdrop-filter: blur(5px); 
+    visibility: visible; 
+    opacity: 1; 
+    transition: opacity 0.3s ease; 
 }
 
-/* Popup Content Styling */
 .popup-content {
     background-color: rgba(0, 0, 0, 0.8);
     color: #fff;
@@ -668,29 +827,23 @@ html {
     width: 90%;
     max-width: 500px;
     box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.1);
-    position: absolute;
-    /* Position relative to the overlay */
-    top: 350px;
-    /* Distance from the top */
+    position: absolute; 
+    top: 350px; 
     left: 50%;
-    transform: translateX(-50%);
-    /* Center horizontally */
+    transform: translateX(-50%); 
 }
 
-/* Heading Styling */
 .popup-content h2 {
     font-family: 'Helvetica Neue', sans-serif;
     margin-bottom: 15px;
     font-size: 24px;
 }
 
-/* Paragraph Styling */
 .popup-content p {
     margin-bottom: 20px;
     font-size: 16px;
 }
 
-/* Button Styling */
 .popup-content button {
     padding: 10px 20px;
     border: none;
@@ -700,33 +853,27 @@ html {
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin: 5px;
-    /* Space between buttons */
+    margin: 5px; 
 }
 
 .popup-content button:hover {
     background-color: #ddd;
 }
 
-/* OK Button Styling */
 .popup-content .ok-btn {
-    background-color: #38b6ff;
-    /* Example color */
+    background-color: #38b6ff; 
     color: #fff;
     margin-top: 20px;
 }
 
 .popup-content .ok-btn:hover {
-    background-color: #38b6ff;
-    /* Example hover color */
+    background-color: #38b6ff; 
 }
 
-/* Prevent scrolling */
 body.no-scroll {
     overflow: hidden;
 }
 
-/* Responsive Design for Mobile */
 @media (max-width: 600px) {
     .popup-content {
         padding: 15px;
@@ -746,4 +893,281 @@ body.no-scroll {
         font-size: 14px;
         padding: 8px 16px;
     }
+}
+
+.success-msg {
+    display: none;
+    margin-bottom: 20px;
+    padding: 12px;
+    background-color: #38b6ff;
+    color: #000;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.page-container .i-agree-btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #000;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
+}
+
+.page-container .i-agree-btn:hover {
+    background-color: #ddd;
+}
+
+.checkout-page-body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.checkout-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    width: 100%;
+    flex: 1;
+}
+
+.logo-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.logo-section img {
+    max-width: 180px;
+    height: auto;
+    display: inline-block;
+}
+
+.checkout-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 40px;
+}
+
+.checkout-card {
+    background-color: #27272a;
+    border-radius: 15px;
+    padding: 30px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.checkout-card:hover {
+    border-color: #333;
+}
+
+.checkout-card .section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #444;
+    color: #fff;
+}
+
+.checkout-card .form-group {
+    margin-bottom: 20px;
+}
+
+.checkout-card .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #ccc;
+    font-size: 0.9rem;
+}
+
+.checkout-card .form-control {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    transition: border-color 0.3s ease;
+}
+
+.checkout-card .form-control:focus {
+    border-color: #38b6ff;
+    outline: none;
+}
+
+.checkout-card .project-brief-description {
+    margin-bottom: 25px;
+    color: #ccc;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.checkout-card .project-brief-description h3 {
+    color: #fff;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.checkout-card .project-brief-description p {
+    margin-bottom: 10px;
+}
+
+.checkout-card .project-brief-description ol {
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+
+.checkout-card .project-brief-description li {
+    margin-bottom: 0.5rem;
+}
+
+.checkout-card .package-header {
+    margin-bottom: 20px;
+}
+
+.checkout-card .package-name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.checkout-card .package-badge {
+    display: inline-block;
+    background-color: #38b6ff;
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.checkout-card .package-description {
+    color: #ccc;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.delivery-box {
+    background-color: rgba(56, 182, 255, 0.1);
+    border: 1px solid rgba(56, 182, 255, 0.3);
+    border-radius: 8px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.delivery-icon {
+    font-size: 1.5rem;
+    color: #38b6ff;
+    flex-shrink: 0;
+}
+
+.delivery-text {
+    font-size: 0.9rem;
+    color: #fff;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    color: #ccc;
+    font-size: 0.95rem;
+}
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px dashed #555;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.highlight-text {
+    color: #38b6ff;
+}
+
+.paypal-container {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #444;
+}
+
+.paypal-container p {
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: #ccc;
+    text-decoration: none;
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
+}
+
+.back-btn:hover {
+    color: #38b6ff;
+}
+
+.notice-box {
+    background-color: rgba(56, 182, 255, 0.1);
+    border: 1px solid #38b6ff;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.notice-box i {
+    flex-shrink: 0;
+    font-size: 1.5rem;
+    color: #38b6ff;
+}
+
+.notice-box div {
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.notice-box strong {
+    color: #38b6ff;
+}
+
+.checkout-card .form-submit-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1rem;
+}
+
+.checkout-card .form-submit-btn:hover {
+    background-color: #ddd;
 }

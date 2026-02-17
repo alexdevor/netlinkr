@@ -1,4 +1,3 @@
-<!-- Contact Us Page -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,25 +6,35 @@
     <title>Contact Us - Netlinkr</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="images/logo.png" type="image/png">
-    <style>
-        /* Keep your existing styles... same as original */
-        /* Add minor tweaks for the form success message */
-        .success-msg {
-            display: none;
-            margin-bottom: 20px;
-            padding: 12px;
-            background-color: #38b6ff;
-            color: #000;
-            text-align: center;
-            border-radius: 5px;
-        }
-    </style>
 </head>
 <body>
-    <style> /* Basic Reset */ * { margin: 0; padding: 0; box-sizing: border-box; } /* Body Styling */ body { font-family: 'Arial', sans-serif; min-height: 100vh; background-color: #000; color: #fff; text-align: left; display: flex; flex-direction: column; justify-content: space-between; overflow-x: hidden; } /* Background Container */ #background { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: -1; } /* Main Container */ .main { flex-grow: 1; padding: 40px; border-radius: 10px; background-color: rgba(0, 0, 0, 0.8); width: 100%; max-width: 1200px; margin: 40px auto; } /* Heading Styling */ h1 { font-family: 'Helvetica Neue', sans-serif; margin-bottom: 20px; font-size: 24px; text-align: center; } /* Paragraph Styling */ p { margin-bottom: 20px; font-size: 16px; line-height: 1.6; } /* Section Heading Styling */ h2 { font-size: 20px; margin-bottom: 15px; margin-top: 25px; } /* Footer Styling */ footer.container { display: flex; flex-wrap: wrap; justify-content: space-between; padding: 20px; background-color: rgba(0, 0, 0, 0.9); color: grey; border-top: 1px solid #444; } footer.container .column { flex: 1; min-width: 200px; margin: 10px; } footer.container .column h4 { margin-bottom: 10px; font-size: 18px; color: #fff; } footer.container .column a { display: block; margin-bottom: 10px; color: grey; text-decoration: none; font-size: 14px; } footer.container .column a:hover { color: #fff; } footer.container .logo img { max-width: 150px; } footer.container .socials a { margin-right: 10px; font-size: 20px; color: grey; text-decoration: none; } footer.container .socials a:hover { color: #fff; } .copyright { text-align: center; padding: 10px; background-color: rgba(0, 0, 0, 0.9); color: grey; } .logo-container { text-align: center; /* Center the image horizontally */ margin: 20px 0; /* Add some margin for spacing */ } .logo-container img { max-width: 270px; /* Adjust the size of the logo */ width: 100%; /* Ensure it scales proportionally */ height: auto; /* Maintain the aspect ratio */ } /* Form Styling */ form { display: flex; flex-direction: column; } label { font-size: 16px; margin-bottom: 8px; } input[type="text"], input[type="email"], textarea { width: 100%; padding: 12px; margin-bottom: 20px; border: 1px solid #444; border-radius: 5px; background-color: #333; color: #fff; font-size: 16px; } textarea { resize: vertical; height: 150px; } button[type="submit"] { padding: 12px; border: none; border-radius: 5px; background-color: #fff; color: #000; font-size: 16px; cursor: pointer; transition: background-color 0.3s ease; width: 150px; align-self: center; } button[type="submit"]:hover { background-color: #ddd; } </style>
     <div id="background"></div>
 
-    <div class="main">
+    <nav>
+      <div class="nav-content">
+        <button class="nav-toggle" onclick="toggleNav()">☰</button>
+        <div class="nav-logo">
+          <a href="index.html"><img src="images/logo.png" alt="logo" /></a>
+        </div>
+
+        <ul class="nav-links">
+          <li class="link"><a href="index.html">Home</a></li>
+          <li id="link1" class="link"><a href="index.html#features">Features</a></li>
+          <li id="link2" class="link"><a href="index.html#pricing">Pricing</a></li>
+          <li id="link3" class="link"><a href="index.html#feedback">About</a></li>
+          <li id="link4" class="link"><a href="404.html">Register</a></li>
+          <li id="link5" class="link"><a href="404.html">Login</a></li>
+        </ul>
+        <button class="animated-btn"
+          class="btn"
+          onclick="window.location.href='mailto:netlinkrdev@gmail.com';"
+        >
+          Help
+        </button>
+      </div>
+    </nav>
+
+    <div class="page-container">
         <div class="logo-container">
             <img src="images/logo.png" alt="netlinkr logo">
         </div>
@@ -33,12 +42,10 @@
         <h1>Contact Us</h1>
         <p>If you have any questions or want to start a project, fill out the form below and we’ll get back to you promptly. Make sure to use the correct email address or we won't be able to get back to you!</p>
 
-        <!-- Success message -->
         <div class="success-msg" id="successMsg">
             Thank you! Your message has been sent.
         </div>
 
-        <!-- Formspree Form -->
         <form id="contactForm" action="https://formspree.io/f/xkovborl" method="POST">
             <label for="name">Your Name</label>
             <input type="text" id="name" name="name" placeholder="Enter your name" required>
@@ -53,23 +60,42 @@
         </form>
     </div>
 
-    <!-- Footer -->
-    <footer class="container">
-        <div class="column">
-            <div class="logo">
-                <img src="images/logo.png" />
-            </div>
-            <p>Email us at <a href="mailto:netlinkrdev@gmail.com">netlinkrdev@gmail.com</a> to get started</p>
-        </div>
-        <!-- keep other columns the same -->
-    </footer>
-
-    <div class="copyright">
-      Copyright © 2026 Netlinkr. All Rights Reserved.
+<footer class="container">
+  <span class="blur"></span>
+  <span class="blur"></span>
+  <div class="column">
+    <div class="logo">
+      <a href="index.html"><img src="images/logo.png" alt="Netlinkr Logo" /></a>
     </div>
+    <p>
+      Professional websites for Irish businesses & individuals. We build modern, responsive websites that work on any device.
+    </p>
+    <div class="socials">
+      <a href="https://www.instagram.com/net.linkr/" target="_blank" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+    </div>
+  </div>
+  <div class="column">
+    <h4>Company</h4>
+    <a href="index.html">Home</a>
+    <a href="index.html#features">Features</a>
+    <a href="index.html#pricing">Pricing</a>
+  </div>
+  <div class="column">
+    <h4>Legal & Support</h4>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="tos.html">Terms & Conditions</a>
+    <a href="contact.html">Contact Us</a>
+  </div>
+  <div class="column">
+    <h4>Get In Touch</h4>
+    <p>Email us to get started on your project.</p>
+    <a href="mailto:netlinkrdev@gmail.com">netlinkrdev@gmail.com</a>
+  </div>
+</footer>
+<div class="copyright">Copyright © 2026 Netlinkr. All Rights Reserved.</div>
 
-    <!-- Particle JS Script -->
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script src="script.js"></script>
 <script>
   // ParticlesJS setup
   particlesJS("background", {
@@ -154,11 +180,14 @@
     "retina_detect": true
   });
 
-  // Contact form submission handler
   const form = document.getElementById("contactForm");
   if(form) {
     form.addEventListener("submit", function(event){
-      event.preventDefault(); // prevent default submission
+      event.preventDefault();
+      const btn = form.querySelector('button[type="submit"]');
+      const originalText = btn.innerText;
+      btn.innerText = "Sending...";
+      btn.disabled = true;
 
       const data = new FormData(form);
 
@@ -171,14 +200,19 @@
       })
       .then(response => {
         if (response.ok) {
-          alert("Your message has been sent successfully!");
+          document.getElementById('successMsg').style.display = 'block';
           form.reset();
+          btn.innerText = "Sent!";
         } else {
           alert("Oops! There was a problem submitting your form.");
+          btn.innerText = originalText;
+          btn.disabled = false;
         }
       })
       .catch(error => {
         alert("Oops! There was a problem submitting your form.");
+        btn.innerText = originalText;
+        btn.disabled = false;
       });
     });
   }

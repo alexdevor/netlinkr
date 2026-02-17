@@ -6,148 +6,36 @@
     <title>ToS - Netlinkr</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="images/logo.png" type="image/png">
-    <!-- Include particles.js library -->
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <style>
-        /* Basic Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Body Styling */
-        body {
-            font-family: 'Arial', sans-serif;
-            min-height: 100vh;
-            background-color: #000;
-            color: #fff;
-            text-align: left;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            overflow-x: hidden;
-        }
-
-        /* Background Container */
-        #background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            z-index: -1;
-        }
-
-        /* Main Container */
-        .main {
-            flex-grow: 1;
-            padding: 40px;
-            border-radius: 10px;
-            background-color: rgba(0, 0, 0, 0.8);
-            width: 100%;
-            max-width: 1200px;
-            margin: 40px auto;
-        }
-
-        /* Heading Styling */
-        h1 {
-            font-family: 'Helvetica Neue', sans-serif;
-            margin-bottom: 20px;
-            font-size: 24px;
-            text-align: center;
-        }
-
-        /* Paragraph Styling */
-        p {
-            margin-bottom: 20px;
-            font-size: 16px;
-            line-height: 1.6;
-        }
-
-        /* Section Heading Styling */
-        h2 {
-            font-size: 20px;
-            margin-bottom: 15px;
-            margin-top: 25px;
-        }
-
-        /* Footer Styling */
-        footer.container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.9);
-            color: grey;
-            border-top: 1px solid #444;
-        }
-
-        footer.container .column {
-            flex: 1;
-            min-width: 200px;
-            margin: 10px;
-        }
-
-        footer.container .column h4 {
-            margin-bottom: 10px;
-            font-size: 18px;
-            color: #fff;
-        }
-
-        footer.container .column a {
-            display: block;
-            margin-bottom: 10px;
-            color: grey;
-            text-decoration: none;
-            font-size: 14px;
-        }
-
-        footer.container .column a:hover {
-            color: #fff;
-        }
-
-        footer.container .logo img {
-            max-width: 150px;
-        }
-
-        footer.container .socials a {
-            margin-right: 10px;
-            font-size: 20px;
-            color: grey;
-            text-decoration: none;
-        }
-
-        footer.container .socials a:hover {
-            color: #fff;
-        }
-
-        .copyright {
-            text-align: center;
-            padding: 10px;
-            background-color: rgba(0, 0, 0, 0.9);
-            color: grey;
-        }
-        .logo-container {
-    text-align: center; /* Center the image horizontally */
-    margin: 20px 0; /* Add some margin for spacing */
-}
-
-.logo-container img {
-    max-width: 270px; /* Adjust the size of the logo */
-    width: 100%; /* Ensure it scales proportionally */
-    height: auto; /* Maintain the aspect ratio */
-}
-
-        
-    </style>
 </head>
 <body>
-    <!-- Background Container -->
     <div id="background"></div>
 
-<!-- Main Content -->
-<div class="main">
+    <nav>
+      <div class="nav-content">
+        <button class="nav-toggle" onclick="toggleNav()">☰</button>
+        <div class="nav-logo">
+          <a href="index.html"><img src="images/logo.png" alt="logo" /></a>
+        </div>
+
+        <ul class="nav-links">
+          <li class="link"><a href="index.html">Home</a></li>
+          <li id="link1" class="link"><a href="index.html#features">Features</a></li>
+          <li id="link2" class="link"><a href="index.html#pricing">Pricing</a></li>
+          <li id="link3" class="link"><a href="index.html#feedback">About</a></li>
+          <li id="link4" class="link"><a href="404.html">Register</a></li>
+          <li id="link5" class="link"><a href="404.html">Login</a></li>
+        </ul>
+        <button class="animated-btn"
+          class="btn"
+          onclick="window.location.href='mailto:netlinkrdev@gmail.com';"
+        >
+          Help
+        </button>
+      </div>
+    </nav>
+
+<div class="page-container">
     <div class="logo-container">
         <img src="images/logo.png" alt="netlinkr logo">
     </div>
@@ -189,62 +77,45 @@
         <a href="mailto:netlinkrdev@gmail.com" style="color:#fff; text-decoration: underline;">netlinkrdev@gmail.com</a>.
     </p>
 
-    <button id="goBackButton" type="submit">I Agree</button>
+    <button id="goBackButton" class="i-agree-btn">I Agree</button>
 </div>
 
-    <style>
-        /* Button Styling */
-    button[type="submit"] {
-        justify-content: center;
-        text-align: center;
-        align-items: center;
-        width: 100%;
-        padding: 10px;
-        border: none;
-        border-radius: 5px;
-        background-color: #fff;
-        color: #000;
-        font-size: 16px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-    
-    button[type="submit"]:hover {
-        background-color: #ddd;
-    }
-     </style>
-
-    <!-- Footer -->
-    <footer class="container">
-        <span class="blur"></span>
-        <span class="blur"></span>
-        <div class="column">
-            <div class="logo">
-                <img src="images/logo.png" />
-            </div>
-            <p>
-                Email us at 
-                <a style="color: grey;" href="mailto:netlinkrdev@gmail.com">netlinkrdev@gmail.com</a>
-                to get started
-            </p>
-            <div class="socials">
-                <a href="https://www.instagram.com/net.linkr/"><i class="ri-instagram-line"></i></a>
-            </div>
-        </div>
-        </div>
-        <div class="column">
-            <h4>Contact</h4>
-            <a href="mailto:netlinkrdev@gmail.com">Contact Us</a>
-            <a href="privacy.html">Privacy Policy</a>
-            <a href="tos.html">Terms & Conditions</a>
-        </div>
-    </footer>
-
-    <div class="copyright">
-        Copyright © 2026 Netlinkr. All Rights Reserved.
+<footer class="container">
+  <span class="blur"></span>
+  <span class="blur"></span>
+  <div class="column">
+    <div class="logo">
+      <a href="index.html"><img src="images/logo.png" alt="Netlinkr Logo" /></a>
     </div>
+    <p>
+      Professional websites for Irish businesses & individuals. We build modern, responsive websites that work on any device.
+    </p>
+    <div class="socials">
+      <a href="https://www.instagram.com/net.linkr/" target="_blank" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+    </div>
+  </div>
+  <div class="column">
+    <h4>Company</h4>
+    <a href="index.html">Home</a>
+    <a href="index.html#features">Features</a>
+    <a href="index.html#pricing">Pricing</a>
+  </div>
+  <div class="column">
+    <h4>Legal & Support</h4>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="tos.html">Terms & Conditions</a>
+    <a href="contact.html">Contact Us</a>
+  </div>
+  <div class="column">
+    <h4>Get In Touch</h4>
+    <p>Email us to get started on your project.</p>
+    <a href="mailto:netlinkrdev@gmail.com">netlinkrdev@gmail.com</a>
+  </div>
+</footer>
+<div class="copyright">Copyright © 2026 Netlinkr. All Rights Reserved.</div>
 
 
+    <script src="script.js"></script>
     <script>
         // Initialize particles.js
         particlesJS("background", {

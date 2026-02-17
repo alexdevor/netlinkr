@@ -32,39 +32,37 @@
         top: 0;
         left: 0;
         width: 100%;
-        height: 100%;
-        z-index: -1; /* Keeps it behind other content */
+        height: 100%; 
+        z-index: -1;
       }
     </style>
   </head>
 
   <body>
     <section class="fade-in-content">
-    <div class="fade-in-content">
     <div id="background"></div>
     <nav>
-      <button class="nav-toggle" onclick="toggleNav()">☰</button>
-      <div class="nav-logo">
-        <img src="images/logo.png" alt="logo" />
+      <div class="nav-content">
+        <button class="nav-toggle" onclick="toggleNav()">☰</button>
+        <div class="nav-logo">
+          <a href="#"><img src="images/logo.png" alt="logo" /></a>
+        </div>
+
+        <ul class="nav-links">
+          <li class="link"><a href="#">Home</a></li>
+          <li id="link1" class="link"><a href="#features">Features</a></li>
+          <li id="link2" class="link"><a href="#pricing">Pricing</a></li>
+          <li id="link3" class="link"><a href="#feedback">About</a></li>
+          <li id="link4" class="link"><a href="404.html">Register</a></li>
+          <li id="link5" class="link"><a href="404.html">Login</a></li>
+        </ul>
+        <button class="animated-btn"
+          class="btn"
+          onclick="window.location.href='mailto:netlinkrdev@gmail.com';"
+        >
+          Help
+        </button>
       </div>
-
-
-
-
-      <ul class="nav-links">
-        <li class="link"><a href="#">Home</a></li>
-        <li id="link1" class="link"><a href="#">Features</a></li>
-        <li id="link2" class="link"><a href="#">Pricing</a></li>
-        <li id="link3" class="link"><a href="#">About</a></li>
-        <li id="link4" class="link"><a href="404.html">Register</a></li>
-        <li id="link5" class="link"><a href="404.html">Login</a></li>
-      </ul>
-      <button class="animated-btn"
-        class="btn"
-        onclick="window.location.href='mailto:netlinkrdev@gmail.com';"
-      >
-        Help
-      </button>
     </nav>
 
     <header class="container">
@@ -91,7 +89,7 @@
       </div>
     </header>
     
-    <section class="container">
+    <section id="features" class="container">
       <h2 class="header">Our Key Features</h2>
       <div class="features">
         <div class="card">
@@ -125,7 +123,7 @@
       </div>
     </section>
     
-    <section class="container">
+    <section id="pricing" class="container">
       <h2 class="header">OUR PRICING PLANS</h2>
       <p class="sub-header">
 Choose the plan that fits your needs. Whether you want a simple website or a full-featured business site, 
@@ -293,38 +291,39 @@ Choose the plan that fits your needs. Whether you want a simple website or a ful
       </div>
   </div>
 
-</body>
-</html>
-
-
     <footer class="container">
       <span class="blur"></span>
       <span class="blur"></span>
       <div class="column">
         <div class="logo">
-          <img src="images/logo.png" />
+          <a href="index.html"><img src="images/logo.png" alt="Netlinkr Logo" /></a>
         </div>
         <p>
-          Email us at 
-          <a style="color: grey;" href="mailto:netlinkrdev@gmail.com">netlinkrdev@gmail.com</a>
-          to get started
+          Professional websites for Irish businesses & individuals. We build modern, responsive websites that work on any device.
         </p>
         <div class="socials">
-          <a href="https://www.instagram.com/net.linkr/"><i class="ri-instagram-line"></i></a>
+          <a href="https://www.instagram.com/net.linkr/" target="_blank" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
         </div>
       </div>
-
       <div class="column">
-        <h4>Contact</h4>
-        <a href="contact.html">Contact Us</a>
+        <h4>Company</h4>
+        <a href="index.html">Home</a>
+        <a href="index.html#features">Features</a>
+        <a href="index.html#pricing">Pricing</a>
+      </div>
+      <div class="column">
+        <h4>Legal & Support</h4>
         <a href="privacy.html">Privacy Policy</a>
         <a href="tos.html">Terms & Conditions</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+      <div class="column">
+        <h4>Get In Touch</h4>
+        <p>Email us to get started on your project.</p>
+        <a href="mailto:netlinkrdev@gmail.com">netlinkrdev@gmail.com</a>
       </div>
     </footer>
-
-    <div class="copyright">
-      Copyright © 2026 Netlinkr. All Rights Reserved.
-    </div>
+    <div class="copyright">Copyright © 2026 Netlinkr. All Rights Reserved.</div>
     <script src="script.js"></script>
   </section>
 
@@ -334,20 +333,20 @@ Choose the plan that fits your needs. Whether you want a simple website or a ful
       particlesJS("background", {
         particles: {
           number: {
-            value: 15, // Number of Particles (count)
+            value: 15,
             density: {
               enable: true,
-              value_area: 300, // Area where particles will be distributed
+              value_area: 300,
             },
           },
           color: {
-            value: "#ffffff", // Particles color
+            value: "#ffffff",
           },
           shape: {
-            type: "triangle", // Shape type
+            type: "triangle",
           },
           opacity: {
-            value: 0.8, // Base opacity of particles
+            value: 0.8,
             random: true,
             anim: {
               enable: true,
@@ -357,7 +356,7 @@ Choose the plan that fits your needs. Whether you want a simple website or a ful
             },
           },
           size: {
-            value: 5, // Base size of particles
+            value: 5,
             random: true,
             anim: {
               enable: true,
@@ -366,47 +365,40 @@ Choose the plan that fits your needs. Whether you want a simple website or a ful
               sync: false,
             },
           },
-          // Connecting lines
           line_linked: {
             enable: true,
-            distance: 150, // Maximum distance between linked particles
+            distance: 150,
             color: "#ffffff",
             opacity: 0.4,
             width: 1,
           },
-          // Particle movement
           move: {
             enable: true,
             speed: 2.5,
             direction: "none",
             random: false,
             straight: false,
-            out_mode: "bounce", // Behavior when particles move out of the canvas
+            out_mode: "bounce",
             bounce: false,
           },
         },
-        // Interactivity settings
         interactivity: {
           detect_on: "canvas",
           events: {
             onhover: {
-              enable: true, // Enable hover interactivity
+              enable: true,
               mode: "repulse",
             },
             onclick: {
-              enable: true, // Enable for click
-              mode: "push", // Push particles on click
+              enable: true,
+              mode: "push",
             },
-            resize: true, // Resize particles animation on window resize
+            resize: true,
           },
         },
-        // Detect retina displays
         retina_detect: true,
       });
     </script>
-
-
-</div>
 
   </body>
 </html>

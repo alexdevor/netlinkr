@@ -1,170 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Coming Soon - Netlinkr</title>
-        <link rel="stylesheet" href="style.css">
-        <link rel="icon" href="images/logo.png" type="image/png">
-        <!-- Include particles.js library -->
-        <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-        <style>
-            /* Basic Reset */
-            * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-            }
-    
-            /* Body Styling */
-            body {
-                font-family: 'Arial', sans-serif;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-                background-color: #000;
-                color: #fff;
-                text-align: center;
-                overflow: hidden; /* Prevents scrollbars from appearing */
-            }
-    
-            /* Background Container */
-            #background {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100vh;
-                z-index: -1; /* Sends background behind other content */
-            }
-    
-            /* Main Container */
-            .main {
-                padding: 40px;
-                border-radius: 10px;
-                box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.1);
-                width: 100%;
-                max-width: 400px;
-                position: relative; /* Ensures the container sits above the background */
-                z-index: 1;
-            }
-    
-            /* Logo Styling */
-            .main img {
-                max-width: 300px;
-                margin-bottom: 5px;
-            }
-    
-            /* Heading Styling */
-            h1 {
-                font-family: 'Helvetica Neue', sans-serif;
-                margin-bottom: 20px;
-                font-size: 24px;
-            }
-    
-            /* Paragraph Styling */
-            p {
-                margin-bottom: 20px;
-                font-size: 16px;
-            }
-    
-            /* Label Styling */
-            label {
-                display: block;
-                margin-bottom: 10px;
-                font-size: 14px;
-            }
-    
-            /* Input Box Styling */
-            input[type="text"] {
-                width: 100%;
-                padding: 10px;
-                margin-bottom: 20px;
-                border: 1px solid #444;
-                border-radius: 5px;
-                background-color: #333;
-                color: #fff;
-            }
-    
-            /* Button Styling */
-            button[type="submit"] {
-                width: 100%;
-                padding: 10px;
-                border: none;
-                border-radius: 5px;
-                background-color: #fff;
-                color: #000;
-                font-size: 16px;
-                cursor: pointer;
-                transition: background-color 0.3s ease;
-            }
-    
-            button[type="submit"]:hover {
-                background-color: #ddd;
-            }
-    
-            /* Error Message Styling */
-            .error-message {
-                color: #ff4444;
-                font-size: 14px;
-                margin-top: 10px;
-                display: none; /* Hidden by default */
-            }
-    
-            /* Ban Message Styling */
-            .ban-message {
-                color: #ff4444;
-                font-size: 16px;
-                margin-top: 20px;
-                display: none; /* Hidden by default */
-            }
-    
-            /* Admin Panel Styling */
-            .admin-panel {
-                margin-top: 20px;
-            }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found - Netlinkr</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/logo.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
 
-        </style>
-    </head>
+        #background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .main-404-container {
+            flex-grow: 1; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .main-404-content {
+            background-color: #27272a;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.1);
+            width: 100%;
+            max-width: 450px;
+        }
+
+        .main-404-content img {
+            max-width: 150px;
+            margin-bottom: 20px;
+        }
+
+        .main-404-content h1 {
+            font-family: 'Helvetica Neue', sans-serif;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            color: #fff;
+        }
+
+        .main-404-content p {
+            margin-bottom: 30px;
+            font-size: 1rem;
+            color: #ccc;
+        }
+    </style>
+</head>
 <body>
-       <!-- Background Container -->
        <div id="background"></div>
 
-       <!-- Main Content -->
-       <div class="main">
-           <!-- Logo Image -->
+       <nav>
+        <div class="nav-content">
+          <button class="nav-toggle" onclick="toggleNav()">☰</button>
+          <div class="nav-logo">
+            <a href="index.html"><img src="images/logo.png" alt="logo" /></a>
+          </div>
+  
+          <ul class="nav-links">
+            <li class="link"><a href="index.html">Home</a></li>
+            <li id="link1" class="link"><a href="index.html#features">Features</a></li>
+            <li id="link2" class="link"><a href="index.html#pricing">Pricing</a></li>
+            <li id="link3" class="link"><a href="index.html#feedback">About</a></li>
+            <li id="link4" class="link"><a href="404.html">Register</a></li>
+            <li id="link5" class="link"><a href="404.html">Login</a></li>
+          </ul>
+          <button class="animated-btn"
+            class="btn"
+            onclick="window.location.href='mailto:netlinkrdev@gmail.com';"
+          >
+            Help
+          </button>
+        </div>
+      </nav>
+
+       <div class="main-404-container">
+        <div class="main-404-content">
            <img src="images/logo.png" alt="Logo">
    
-           <h1>Coming Soon</h1>
-           <p>This page is still under development by the Netlinkr Team</p>
-<!-- Go Back Button -->
- <style>
-    /* Button Styling */
-button[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #fff;
-    color: #000;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button[type="submit"]:hover {
-    background-color: #ddd;
-}
- </style>
-<button id="goBackButton" type="submit">Go back</button><br><br>
-<div style="color: #fff;" class="copyright">
-                Copyright © 2026 Netlinkr. All Rights Reserved.
-              </div>
-           </div>
+           <h1>Page Not Found</h1>
+           <p>Sorry, the page you are looking for is either under development or does not exist.</p>
+            <button id="goBackButton" class="animated-btn">Go Back</button>
+        </div>
        </div>
+
+       <footer class="container">
+        <span class="blur"></span>
+        <span class="blur"></span>
+        <div class="column">
+          <div class="logo">
+            <a href="index.html"><img src="images/logo.png" alt="Netlinkr Logo" /></a>
+          </div>
+          <p>
+            Professional websites for Irish businesses & individuals. We build modern, responsive websites that work on any device.
+          </p>
+          <div class="socials">
+            <a href="https://www.instagram.com/net.linkr/" target="_blank" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+          </div>
+        </div>
+        <div class="column">
+          <h4>Company</h4>
+          <a href="index.html">Home</a>
+          <a href="index.html#features">Features</a>
+          <a href="index.html#pricing">Pricing</a>
+        </div>
+        <div class="column">
+          <h4>Legal & Support</h4>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="tos.html">Terms & Conditions</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
+        <div class="column">
+          <h4>Get In Touch</h4>
+          <p>Email us to get started on your project.</p>
+          <a href="mailto:netlinkrdev@gmail.com">netlinkrdev@gmail.com</a>
+        </div>
+      </footer>
+      <div class="copyright">Copyright © 2026 Netlinkr. All Rights Reserved.</div>
    
-       <!-- JavaScript to Handle Form Submission and Admin Code -->
+       <script src="script.js"></script>
        <script>
          // Add event listener to the Go Back button
          document.getElementById('goBackButton').addEventListener('click', function() {
@@ -174,20 +145,20 @@ button[type="submit"]:hover {
            particlesJS("background", {
                particles: {
                    number: {
-                       value: 15, // Number of Particles (count)
+                       value: 15,
                        density: {
                            enable: true,
-                           value_area: 300, // Area where particles will be distributed
+                           value_area: 300,
                        },
                    },
                    color: {
-                       value: "#ffffff", // Particles color
+                       value: "#ffffff",
                    },
                    shape: {
-                       type: "triangle", // Shape type
+                       type: "triangle",
                    },
                    opacity: {
-                       value: 0.8, // Base opacity of particles
+                       value: 0.8,
                        random: true,
                        anim: {
                            enable: true,
@@ -197,7 +168,7 @@ button[type="submit"]:hover {
                        },
                    },
                    size: {
-                       value: 5, // Base size of particles
+                       value: 5,
                        random: true,
                        anim: {
                            enable: true,
@@ -206,165 +177,39 @@ button[type="submit"]:hover {
                            sync: false,
                        },
                    },
-                   // Connecting lines
                    line_linked: {
                        enable: true,
-                       distance: 150, // Maximum distance between linked particles
+                       distance: 150,
                        color: "#ffffff",
                        opacity: 0.4,
                        width: 1,
                    },
-                   // Particle movement
                    move: {
                        enable: true,
                        speed: 2.5,
                        direction: "none",
                        random: false,
                        straight: false,
-                       out_mode: "bounce", // Behavior when particles move out of the canvas
+                       out_mode: "bounce",
                        bounce: false,
                    },
                },
-               // Interactivity settings
                interactivity: {
                    detect_on: "canvas",
                    events: {
                        onhover: {
-                           enable: true, // Enable hover interactivity
+                           enable: true,
                            mode: "repulse",
                        },
                        onclick: {
-                           enable: true, // Enable for click
-                           mode: "push", // Push particles on click
+                           enable: true,
+                           mode: "push",
                        },
-                       resize: true, // Resize particles animation on window resize
+                       resize: true,
                    },
                },
-               // Detect retina displays
                retina_detect: true,
            });
        </script>
-       <style>
-        /* Basic Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Body Styling */
-body {
-    font-family: 'Arial', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #000;
-    color: #fff;
-    text-align: center;
-    overflow: hidden;
-    /* Prevents scrollbars from appearing */
-}
-
-/* Background Container */
-#background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    z-index: -1;
-    /* Sends background behind other content */
-}
-
-/* Main Container */
-.main {
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.1);
-    width: 100%;
-    max-width: 400px;
-    position: relative;
-    /* Ensures the container sits above the background */
-    z-index: 1;
-}
-
-/* Logo Styling */
-.main img {
-    max-width: 300px;
-    margin-bottom: 5px;
-}
-
-/* Heading Styling */
-h1 {
-    font-family: 'Helvetica Neue', sans-serif;
-    margin-bottom: 20px;
-    font-size: 24px;
-}
-
-/* Paragraph Styling */
-p {
-    margin-bottom: 20px;
-    font-size: 16px;
-}
-
-/* Label Styling */
-label {
-    display: block;
-    margin-bottom: 10px;
-    font-size: 14px;
-}
-
-/* Input Box Styling */
-input[type="text"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #444;
-    border-radius: 5px;
-    background-color: #333;
-    color: #fff;
-}
-
-/* Button Styling */
-button[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #fff;
-    color: #000;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button[type="submit"]:hover {
-    background-color: #ddd;
-}
-
-/* Error Message Styling */
-.error-message {
-    color: #ff4444;
-    font-size: 14px;
-    margin-top: 10px;
-    display: none;
-    /* Hidden by default */
-}
-
-/* Ban Message Styling */
-.ban-message {
-    color: #ff4444;
-    font-size: 16px;
-    margin-top: 20px;
-    display: none;
-    /* Hidden by default */
-}
-
-/* Admin Panel Styling */
-.admin-panel {
-    margin-top: 20px;
-}
-       </style>
 </body>
 </html>
